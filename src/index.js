@@ -40,13 +40,13 @@ function showTemperature(response) {
 
 let now = new Date();
 let days = [
+  "Sunday",
   "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
   "Friday",
   "Saturday",
-  "Sunday",
 ];
 
 let months = [
