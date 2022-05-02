@@ -15,7 +15,7 @@ function showTemperature(response) {
   let weatherIcon = document.querySelector("#weather-current-icon");
   let weatherCurrent = document.querySelector("#weather-current");
   let tempDegreesC = Math.round(response.data.main.temp);
-  let tempDegreesF = (tempDegreesC * 9) / 5 + 32;
+  let tempDegreesF = Math.round((tempDegreesC * 9) / 5 + 32);
   let wind = response.data.wind.speed;
   wind = wind.toFixed(1);
   let humidity = response.data.main.humidity;

@@ -41,3 +41,10 @@ p {
   margin-top: 20px;
   margin-bottom: 15px;
 }
+footer {
+  font-size: 10px;
+  text-align: center;
+  margin: 0 auto;
+  font-family: cursive;
+  color: #385170;
+}
