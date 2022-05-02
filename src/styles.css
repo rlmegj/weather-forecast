@@ -1,0 +1,25 @@
+h3 {
+  font-size: 75px;
+}
+
+h5 {
+  font-size: 50px;
+}
+.card-header {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+button {
+  display: inline;
+  font-size: 20px;
+  margin-top: 10px;
+  box-shadow: none;
+}
+
+#search-form {
+  font-size: 20px;
+  margin-top: 10px;
+  box-shadow: none;
+  display: inline;
+}
