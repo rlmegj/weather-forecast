@@ -1,31 +1,40 @@
 function cityName(event) {
   event.preventDefault();
-  title = document.querySelector(".card-header");
   let city = document.querySelector("#city").value;
   let apiKey = "5d9cd8b79b305222517d953848160e56";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
   axios.get(`${apiURL}&appid=${apiKey}`).then(showTemperature);
 }
 
-function location(position) {
-  position.preventDefault();
-  title = document.querySelector(".card-header");
-  let sentenceWeather = `On ${currentDay}, ${today} at ${currentTime}, the weather in is:`;
-  title.innerHTML = sentenceWeather;
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric`;
-  axios.get(`${apiURL}&appid=${apiKey}`).then(showTemperature);
-}
-
 function showTemperature(response) {
-  let tempTodayDegrees = document.querySelector("#temperature-current");
-  let tempDegreesC = Math.round(response.data.main.temp);
+  console.log(response);
+  title = document.querySelector(".card-header");
   let sentenceWeather = `On ${currentDay}, ${today} at ${currentTime}, the weather in <strong>${response.data.name}</strong> is:`;
   title.innerHTML = sentenceWeather;
-  tempTodayDegrees.innerHTML = `${tempDegreesC}°C`;
+
+  let weatherIcon = document.querySelector("#weather-current-icon");
+  let weatherCurrent = document.querySelector("#weather-current");
+  let tempDegreesC = Math.round(response.data.main.temp);
+  let wind = response.data.wind.speed;
+  let humidity = response.data.main.humidity;
+  let description = response.data.weather[0].description;
+
+  let weatherCurrentIcon = `<img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"</div>`;
+  let weatherCurrentSentence = `
+  <div id="temperature">Temperature: ${tempDegreesC}°C </div>
+          <div>Wind speed: ${wind} km/h </div>
+          <div>Humidity: ${humidity}%
+          <div id="humidity">${description} </div>`;
+
+  weatherIcon.innerHTML = weatherCurrentIcon;
+  weatherCurrent.innerHTML = weatherCurrentSentence;
+
+  let form = document.querySelector("#search-form");
+  form.innerHTML = ``;
 }
 
-navigator.geolocation.getCurrentPosition(cityName);
-navigator.geolocation.getCurrentPosition(location);
+//navigator.geolocation.getCurrentPosition(cityName);
+//navigator.geolocation.getCurrentPosition(location);
 
 let now = new Date();
 let days = [

@@ -1,13 +1,13 @@
-h3 {
-  font-size: 75px;
-}
-
 h5 {
   font-size: 50px;
 }
 .card-header {
   font-size: 32px;
   font-weight: 400;
+}
+
+.card {
+  margin-top: 10px;
 }
 
 button {
@@ -22,4 +22,22 @@ button {
   margin-top: 10px;
   box-shadow: none;
   display: inline;
+}
+
+p {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#humidity:first-letter {
+  text-transform: capitalize;
+}
+
+#weather-current-icon {
+  text-align: right;
+}
+
+#display-current-weather {
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
