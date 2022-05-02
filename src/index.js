@@ -60,7 +60,9 @@ let currentMonth = months[now.getMonth()];
 let currentHour = now.getHours();
 let currentMinute = now.getMinutes();
 if (currentMinute < 10) {
-  currentMinute = `0${currentMinutes}`;
+  currentMinute = `0${currentMinute}`;
+} else {
+  now.getMinutes();
 }
 let currentDate = now.getDate();
 let currentTime = `${currentHour}:${currentMinute}`;
@@ -70,8 +72,8 @@ let sentence = `What is the weather right now in...?`;
 let title = document.querySelector(".card-header");
 title.innerHTML = sentence;
 
-let submit = document.querySelector("#search-form");
+let submit = document.querySelector(".search-form");
 submit.addEventListener("submit", cityName);
 
-let searchButtonCurrent = document.querySelector("#search-button-current");
-searchButtonCurrent.addEventListener("click", location);
+submit = document.querySelector(".search-form");
+submit.addEventListener("click", cityName);
