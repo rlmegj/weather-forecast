@@ -15,13 +15,15 @@ function showTemperature(response) {
   let weatherIcon = document.querySelector("#weather-current-icon");
   let weatherCurrent = document.querySelector("#weather-current");
   let tempDegreesC = Math.round(response.data.main.temp);
+  let tempDegreesF = (tempDegreesC * 9) / 5 + 32;
   let wind = response.data.wind.speed;
+  wind = wind.toFixed(1);
   let humidity = response.data.main.humidity;
   let description = response.data.weather[0].description;
 
   let weatherCurrentIcon = `<img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"</div>`;
   let weatherCurrentSentence = `
-  <div id="temperature">Temperature: ${tempDegreesC}°C </div>
+  <div id="temperature">Temperature: ${tempDegreesC}°C / ${tempDegreesF}°F </div>
           <div>Wind speed: ${wind} km/h </div>
           <div>Humidity: ${humidity}%
           <div id="humidity">${description} </div>`;
