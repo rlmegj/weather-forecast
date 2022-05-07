@@ -30,87 +30,25 @@
               <input type="submit" id="search-form" value="Search!" />
             </form>
           </h2>
-<div class="container">
-  <div class="row" id = "display-current-weather">
-    <div class="col-3"></div>
-    <div class="col-3"  id="weather-current-icon"></div>
-    <div class="col-3" id="weather-current"></div>
-    <div class="col-3"></div>
-  </div>
-        
-
-          <div class="row" style="text-align: center">
-            <div class="col mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div id="weatherIcon1"></div>
-                  <div id="forecast1"></div>
-                </div>
-              </div>
+          <div class="container">
+            <div class="row" id="display-current-weather">
+              <div class="col-3"></div>
+              <div class="col-3" id="weather-current-icon"></div>
+              <div class="col-3" id="weather-current"></div>
+              <div class="col-3"></div>
             </div>
-            <div class="col mb-3">
-              <div class="card">
-                <div class="card-body">
-                 <div id="weatherIcon2"></div>
-                  <div id="forecast2"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <strong>PLACEHOLDER</strong>
-                  <h5 class="forecast">🌤</h5>
-                  <p class="forecast">
-                    31°C
-                    <br />Precipitation: 0% <br />Humidity: 47% <br />Wind: 18
-                    km/h
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <strong>PLACEHOLDER</strong>
-                  <h5 class="forecast">🌤</h5>
-                  <p class="forecast">
-                    31°C
-                    <br />Precipitation: 0% <br />Humidity: 46% <br />Wind: 18
-                    km/h
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <strong>PLACEHOLDER</strong>
-                  <h5 class="forecast">☀️</h5>
-                  <p class="forecast">
-                    31°C
-                    <br />Precipitation: 0% <br />Humidity: 57% <br />Wind: 19
-                    km/h
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row" style="text-align: center">
-            <div class="col-12">
-              <button id="tryAgain" onClick="document.location.reload(true)">
-                Try another city
-              </button>
-            </div>
+            <div class="containerForecast" id="forecastBox"></div>
           </div>
         </div>
       </div>
     </div>
-  <footer>
-      Coded by Vanessa Pagé 💁🏼‍♀️<a href="https://github.com/rlmegj/weather-forecast"
+    <footer>
+      Coded by Vanessa Pagé 💁🏼‍♀️<a
+        href="https://github.com/rlmegj/weather-forecast"
         ><br />
         GitHub</a
-      ></footer>
-    </body>
+      >
+    </footer>
+  </body>
   <script src="src/index.js"></script>
 </html>

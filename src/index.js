@@ -35,30 +35,18 @@ function showTemperature(response) {
   let form = document.querySelector("#search-form");
   form.innerHTML = ``;
 
-  //Forecast 1
-  let weatherIcon1 = document.querySelector("#weatherIcon1");
-  let forecast1 = document.querySelector("#forecast1");
+  let forecastdays = document.querySelector("#forecastBox");
+
+  //Forecast
+  //1
   let tempDegreesC1 = Math.round(response.data.main.temp);
   let tempDegreesF1 = Math.round((tempDegreesC * 9) / 5 + 32);
   let wind1 = response.data.wind.speed;
   wind1 = wind1.toFixed(1);
   let humidity1 = response.data.main.humidity;
   let description1 = response.data.weather[0].description;
-  console.log(forecast1);
 
-  let weatherForecastIcon1 = `<strong>DATE</strong><div><img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"</div>`;
-  let weatherForecastText1 = `
-  <div id="temperature1">${tempDegreesC1}°C / ${tempDegreesF1}°F </div>
-          <div>Wind speed: ${wind1} km/h </div>
-          <div>Humidity: ${humidity1}%
-          <div class="description">${description1} </div>`;
-
-  weatherIcon1.innerHTML = weatherForecastIcon1;
-  forecast1.innerHTML = weatherForecastText1;
-
-  //Forecast 2
-  let weatherIcon2 = document.querySelector("#weatherIcon2");
-  let forecast2 = document.querySelector("#forecast2");
+  //2
   let tempDegreesC2 = Math.round(response.data.main.temp);
   let tempDegreesF2 = Math.round((tempDegreesC * 9) / 5 + 32);
   let wind2 = response.data.wind.speed;
@@ -66,15 +54,117 @@ function showTemperature(response) {
   let humidity2 = response.data.main.humidity;
   let description2 = response.data.weather[0].description;
 
-  let weatherForecastIcon2 = `<strong>DATE</strong><div><img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"</div>`;
-  let weatherForecastText2 = `
-  <div id="temperature1">${tempDegreesC2}°C / ${tempDegreesF2}°F </div>
-          <div>Wind speed: ${wind2} km/h </div>
-          <div>Humidity: ${humidity2}%
-          <div class="description">${description2} </div>`;
+  //3
+  let tempDegreesC3 = Math.round(response.data.main.temp);
+  let tempDegreesF3 = Math.round((tempDegreesC * 9) / 5 + 32);
+  let wind3 = response.data.wind.speed;
+  wind3 = wind3.toFixed(1);
+  let humidity3 = response.data.main.humidity;
+  let description3 = response.data.weather[0].description;
 
-  weatherIcon2.innerHTML = weatherForecastIcon2;
-  forecast2.innerHTML = weatherForecastText2;
+  //4
+  let tempDegreesC4 = Math.round(response.data.main.temp);
+  let tempDegreesF4 = Math.round((tempDegreesC * 9) / 5 + 32);
+  let wind4 = response.data.wind.speed;
+  wind4 = wind4.toFixed(1);
+  let humidity4 = response.data.main.humidity;
+  let description4 = response.data.weather[0].description;
+
+  //5
+  let tempDegreesC5 = Math.round(response.data.main.temp);
+  let tempDegreesF5 = Math.round((tempDegreesC * 9) / 5 + 32);
+  let wind5 = response.data.wind.speed;
+  wind5 = wind5.toFixed(1);
+  let humidity5 = response.data.main.humidity;
+  let description5 = response.data.weather[0].description;
+
+  let forecast = `
+  <div class="container">
+    <div class="row" id = "display-current-weather">
+      <div class="col-3"></div>
+      <div class="col-3"  id="weather-current-icon"></div>
+      <div class="col-3" id="weather-current"></div>
+      <div class="col-3"></div>
+    </div>
+        
+
+    <div class="row" style="text-align: center">
+    
+      <div class="col mb-3">
+        <div class="card">
+          <div class="card-body">
+            <strong>DATE</strong>
+            <p><img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"></p>
+            <p>${tempDegreesC1}°C / ${tempDegreesF1}°F</p>
+            <p>Wind: ${wind1} km/h </p>
+            <p>Humidity: ${humidity1}% </p>
+            <p class="description">${description1} </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col mb-3">
+        <div class="card">
+          <div class="card-body">
+            <strong>DATE</strong>
+            <p><img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"></p>
+            <p>${tempDegreesC2}°C / ${tempDegreesF2}°F</p>
+            <p>Wind: ${wind2} km/h </p>
+            <p>Humidity: ${humidity2}% </p>
+            <p class="description">${description2} </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col mb-3">
+        <div class="card">
+          <div class="card-body">
+            <strong>DATE</strong>
+            <p><img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"></p>
+            <p>${tempDegreesC3}°C / ${tempDegreesF3}°F</p>
+            <p>Wind: ${wind3} km/h </p>
+            <p>Humidity: ${humidity3}% </p>
+            <p class="description">${description3} </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col mb-3">
+        <div class="card">
+          <div class="card-body">
+            <strong>DATE</strong>
+            <p><img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"></p>
+            <p>${tempDegreesC4}°C / ${tempDegreesF4}°F</p>
+            <p>Wind: ${wind4} km/h </p>
+            <p>Humidity: ${humidity4}% </p>
+            <p class="description">${description4} </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col mb-3">
+        <div class="card">
+          <div class="card-body">
+            <strong>DATE</strong>
+            <p><img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"></p>
+            <p>${tempDegreesC5}°C / ${tempDegreesF5}°F</p>
+            <p>Wind: ${wind5} km/h </p>
+            <p>Humidity: ${humidity5}% </p>
+            <p class="description">${description5} </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row" style="text-align: center">
+      <div class="col-12">
+        <button id="tryAgain" onClick="document.location.reload(true)">Try another city</button>
+      </div>
+    </div>
+      `;
+
+  forecastdays.innerHTML = forecast;
 }
 
 let now = new Date();
