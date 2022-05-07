@@ -4,10 +4,12 @@ h5 {
 .card-header {
   font-size: 32px;
   font-weight: 400;
+  background-color: #fff7f0;
 }
 
 .card {
   margin-top: 10px;
+  background-color: #fcfcfc;
 }
 
 button {
@@ -56,4 +58,8 @@ footer {
 #globe {
   margin-top: 10px;
   font-size: 200px;
+}
+
+body {
+  background-color: #f0f8ff;
 }

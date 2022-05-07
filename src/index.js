@@ -104,7 +104,7 @@ function showForecast(response) {
       <div class="col mb-3">
         <div class="card">
           <div class="card-body">
-            <strong>DATE</strong>
+            <strong>Tomorrow</strong>
             <p><img src="http://openweathermap.org/img/wn/${response.data.daily[0].weather[0].icon}@2x.png"></p>
             <p>${tempDegreesC1}°C / ${tempDegreesF1}°F</p>
             <p>Wind: ${wind1} km/h </p>
@@ -117,7 +117,7 @@ function showForecast(response) {
       <div class="col mb-3">
         <div class="card">
           <div class="card-body">
-            <strong>DATE</strong>
+            <strong>${Day2}</strong>
             <p><img src="http://openweathermap.org/img/wn/${response.data.daily[1].weather[0].icon}@2x.png"></p>
             <p>${tempDegreesC2}°C / ${tempDegreesF2}°F</p>
             <p>Wind: ${wind2} km/h </p>
@@ -130,7 +130,7 @@ function showForecast(response) {
       <div class="col mb-3">
         <div class="card">
           <div class="card-body">
-            <strong>DATE</strong>
+            <strong>${Day3}</strong>
             <p><img src="http://openweathermap.org/img/wn/${response.data.daily[2].weather[0].icon}@2x.png"></p>
             <p>${tempDegreesC3}°C / ${tempDegreesF3}°F</p>
             <p>Wind: ${wind3} km/h </p>
@@ -143,11 +143,12 @@ function showForecast(response) {
       <div class="col mb-3">
         <div class="card">
           <div class="card-body">
-            <strong>DATE</strong>
+            <strong>${Day4}</strong>
             <p><img src="http://openweathermap.org/img/wn/${response.data.daily[3].weather[0].icon}@2x.png"></p>
             <p>${tempDegreesC4}°C / ${tempDegreesF4}°F</p>
             <p>Wind: ${wind4} km/h </p>
             <p>Humidity: ${humidity4}% </p>
+            <p class="description">${description4} </p>
           </div>
         </div>
       </div>
@@ -155,7 +156,7 @@ function showForecast(response) {
       <div class="col mb-3">
         <div class="card">
           <div class="card-body">
-            <strong>DATE</strong>
+            <strong>${Day5}</strong>
             <p><img src="http://openweathermap.org/img/wn/${response.data.daily[4].weather[0].icon}@2x.png"></p>
             <p>${tempDegreesC5}°C / ${tempDegreesF5}°F</p>
             <p>Wind: ${wind5} km/h </p>
@@ -169,8 +170,8 @@ function showForecast(response) {
 
     <div class="row" style="text-align: center">
       <div class="col-12">
-        <button id="tryAgain" onClick="document.location.reload(true)">Try another city</button>
-      </div>
+      <button type="button" onClick="document.location.reload(true)" class="btn btn-dark">Try another city</button>
+        </div>
     </div>
       `;
 
@@ -204,6 +205,27 @@ let months = [
 ];
 
 let currentDay = days[now.getDay()];
+let Day2 = [now.getDay() + 2];
+if (Day2 > 7) {
+  Day2 = Day2 - 7;
+}
+Day2 = days[Day2];
+let Day3 = now.getDay() + 3;
+if (Day3 > 7) {
+  Day3 = Day3 - 7;
+}
+Day3 = days[Day3];
+let Day4 = now.getDay() + 4;
+if (Day4 > 7) {
+  Day4 = Day4 - 7;
+}
+Day4 = days[Day4];
+let Day5 = now.getDay() + 5;
+if (Day5 > 7) {
+  Day5 = Day5 - 7;
+}
+Day5 = days[Day5];
+
 let currentMonth = months[now.getMonth()];
 let currentHour = now.getHours();
 let currentMinute = now.getMinutes();
