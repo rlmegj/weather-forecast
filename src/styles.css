@@ -29,7 +29,7 @@ p {
   margin: 0 auto;
 }
 
-#humidity:first-letter {
+.description:first-letter {
   text-transform: capitalize;
 }
 
