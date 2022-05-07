@@ -34,49 +34,60 @@ function showTemperature(response) {
 
   let form = document.querySelector("#search-form");
   form.innerHTML = ``;
+  let globe = document.querySelector("#globe");
+  globe.innerHTML = ``;
+  let apiKey = "5d9cd8b79b305222517d953848160e56";
+  let lat = response.data.coord.lat;
+  let lon = response.data.coord.lon;
+  let apiURLForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely,current&units=metric`;
+  axios.get(`${apiURLForecast}&appid=${apiKey}`).then(showForecast);
+}
 
+//Forecast weather
+function showForecast(response) {
   let forecastdays = document.querySelector("#forecastBox");
+  console.log(response);
 
   //Forecast
   //1
-  let tempDegreesC1 = Math.round(response.data.main.temp);
-  let tempDegreesF1 = Math.round((tempDegreesC * 9) / 5 + 32);
-  let wind1 = response.data.wind.speed;
+  let tempDegreesC1 = Math.round(response.data.daily[0].temp.day);
+  let tempDegreesF1 = Math.round((tempDegreesC1 * 9) / 5 + 32);
+  let wind1 = response.data.daily[0].wind_speed;
   wind1 = wind1.toFixed(1);
-  let humidity1 = response.data.main.humidity;
-  let description1 = response.data.weather[0].description;
+  let humidity1 = response.data.daily[0].humidity;
+  let description1 = response.data.daily[0].weather[0].description;
 
   //2
-  let tempDegreesC2 = Math.round(response.data.main.temp);
-  let tempDegreesF2 = Math.round((tempDegreesC * 9) / 5 + 32);
-  let wind2 = response.data.wind.speed;
+  let tempDegreesC2 = Math.round(response.data.daily[1].temp.day);
+  let tempDegreesF2 = Math.round((tempDegreesC2 * 9) / 5 + 32);
+  let wind2 = response.data.daily[1].wind_speed;
   wind2 = wind2.toFixed(1);
-  let humidity2 = response.data.main.humidity;
-  let description2 = response.data.weather[0].description;
+  let humidity2 = response.data.daily[1].humidity;
+  let description2 = response.data.daily[1].weather[0].description;
 
   //3
-  let tempDegreesC3 = Math.round(response.data.main.temp);
-  let tempDegreesF3 = Math.round((tempDegreesC * 9) / 5 + 32);
-  let wind3 = response.data.wind.speed;
+  let tempDegreesC3 = Math.round(response.data.daily[2].temp.day);
+  let tempDegreesF3 = Math.round((tempDegreesC3 * 9) / 5 + 32);
+  let wind3 = response.data.daily[2].wind_speed;
   wind3 = wind3.toFixed(1);
-  let humidity3 = response.data.main.humidity;
-  let description3 = response.data.weather[0].description;
+  let humidity3 = response.data.daily[2].humidity;
+  let description3 = response.data.daily[2].weather[0].description;
 
   //4
-  let tempDegreesC4 = Math.round(response.data.main.temp);
-  let tempDegreesF4 = Math.round((tempDegreesC * 9) / 5 + 32);
-  let wind4 = response.data.wind.speed;
+  let tempDegreesC4 = Math.round(response.data.daily[3].temp.day);
+  let tempDegreesF4 = Math.round((tempDegreesC4 * 9) / 5 + 32);
+  let wind4 = response.data.daily[3].wind_speed;
   wind4 = wind4.toFixed(1);
-  let humidity4 = response.data.main.humidity;
-  let description4 = response.data.weather[0].description;
+  let humidity4 = response.data.daily[3].humidity;
+  let description4 = response.data.daily[3].weather[0].description;
 
   //5
-  let tempDegreesC5 = Math.round(response.data.main.temp);
-  let tempDegreesF5 = Math.round((tempDegreesC * 9) / 5 + 32);
-  let wind5 = response.data.wind.speed;
+  let tempDegreesC5 = Math.round(response.data.daily[4].temp.day);
+  let tempDegreesF5 = Math.round((tempDegreesC5 * 9) / 5 + 32);
+  let wind5 = response.data.daily[4].wind_speed;
   wind5 = wind5.toFixed(1);
-  let humidity5 = response.data.main.humidity;
-  let description5 = response.data.weather[0].description;
+  let humidity5 = response.data.daily[4].humidity;
+  let description5 = response.data.daily[4].weather[0].description;
 
   let forecast = `
   <div class="container">
@@ -94,7 +105,7 @@ function showTemperature(response) {
         <div class="card">
           <div class="card-body">
             <strong>DATE</strong>
-            <p><img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"></p>
+            <p><img src="http://openweathermap.org/img/wn/${response.data.daily[0].weather[0].icon}@2x.png"></p>
             <p>${tempDegreesC1}°C / ${tempDegreesF1}°F</p>
             <p>Wind: ${wind1} km/h </p>
             <p>Humidity: ${humidity1}% </p>
@@ -107,7 +118,7 @@ function showTemperature(response) {
         <div class="card">
           <div class="card-body">
             <strong>DATE</strong>
-            <p><img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"></p>
+            <p><img src="http://openweathermap.org/img/wn/${response.data.daily[1].weather[0].icon}@2x.png"></p>
             <p>${tempDegreesC2}°C / ${tempDegreesF2}°F</p>
             <p>Wind: ${wind2} km/h </p>
             <p>Humidity: ${humidity2}% </p>
@@ -120,7 +131,7 @@ function showTemperature(response) {
         <div class="card">
           <div class="card-body">
             <strong>DATE</strong>
-            <p><img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"></p>
+            <p><img src="http://openweathermap.org/img/wn/${response.data.daily[2].weather[0].icon}@2x.png"></p>
             <p>${tempDegreesC3}°C / ${tempDegreesF3}°F</p>
             <p>Wind: ${wind3} km/h </p>
             <p>Humidity: ${humidity3}% </p>
@@ -133,11 +144,10 @@ function showTemperature(response) {
         <div class="card">
           <div class="card-body">
             <strong>DATE</strong>
-            <p><img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"></p>
+            <p><img src="http://openweathermap.org/img/wn/${response.data.daily[3].weather[0].icon}@2x.png"></p>
             <p>${tempDegreesC4}°C / ${tempDegreesF4}°F</p>
             <p>Wind: ${wind4} km/h </p>
             <p>Humidity: ${humidity4}% </p>
-            <p class="description">${description4} </p>
           </div>
         </div>
       </div>
@@ -146,7 +156,7 @@ function showTemperature(response) {
         <div class="card">
           <div class="card-body">
             <strong>DATE</strong>
-            <p><img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"></p>
+            <p><img src="http://openweathermap.org/img/wn/${response.data.daily[4].weather[0].icon}@2x.png"></p>
             <p>${tempDegreesC5}°C / ${tempDegreesF5}°F</p>
             <p>Wind: ${wind5} km/h </p>
             <p>Humidity: ${humidity5}% </p>
